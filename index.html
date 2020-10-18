@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Character Counter</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
+  <h1>Day 5 - Character Count</h1>
   <div class="container">
-  <label for="text">Enter your text below.</label>
-<textarea id="text"></textarea>
+    <div class="text-container">
+      <label for="text" class="text-label">Enter your text below.</label>
+      <textarea id="text" class="text-counter"></textarea>
+    </div>
 
-<p>You've written <strong><span id="character-count">0</span> characters</strong>.</p> 
-</div>
+    <p>You've written <strong><span id="character-count">0</span> characters</strong>.</p> 
+    </div>
 <script>
   const text = document.querySelector('#text');
   const count = document.querySelector('#character-count');
 
   text.addEventListener('keyup', (e) => {
     count.innerText = e.target.value.length;
-  });
+  }, false);
 
   text.addEventListener('paste', (e) => {
-    count.innerText = e.target.value.length;
-  });
+    setTimeout(() => {
+      count.innerText = e.target.value.length;
+    }, 100)
+  }, false);
 
 </script>;
 </body>
