@@ -14,22 +14,25 @@
       <textarea id="text" class="text-counter"></textarea>
     </div>
 
-    <p>You've written <strong><span id="character-count">0</span> characters</strong>.</p> 
+    <p>You've written <strong><span id="character-count">0</span> <span id="plural">characters</span></strong>.</p> 
     </div>
 <script>
   const text = document.querySelector('#text');
   const count = document.querySelector('#character-count');
+  const plural = document.querySelector('#plural');
 
   text.addEventListener('keyup', (e) => {
     count.innerText = e.target.value.length;
+    plural.innerText = e.target.value.length !== 1 ? 'characters' : 'character';
   }, false);
 
   text.addEventListener('paste', (e) => {
     setTimeout(() => {
       count.innerText = e.target.value.length;
+      plural.innerText = e.target.value.length !== 1 ? 'characters' : 'character';
     }, 100)
   }, false);
 
-</script>;
+</script>
 </body>
 </html>
